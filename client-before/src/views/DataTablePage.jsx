@@ -1,29 +1,26 @@
-import { useEffect } from "react";
-import { useSelector, useDispatch } from 'react-redux'
-import { fetchAsync } from '../features/todo/todoSlice'
+import { useEffect, useState } from "react";
 import gifLoading from '../assets/Pulse-1s-284px.svg'
+import axios from 'axios'
 
 const DataTablePage = () => {
-  // const [todos, setTodos] = useState([]);
-  // const [loading, setLoading] = useState(false)
-  const { todos, loading, error } = useSelector((state) => state.todo)
-  const dispatch = useDispatch()
+  const [todos, setTodos] = useState([]);
+  const [loading, setLoading] = useState(false)
 
-  // const fetchTodos = async () => {
-  //   try {
-  //     setLoading(true) // pending
-  //     const { data } = await axios.get("https://jsonplaceholder.typicode.com/todos");
+  const fetchTodos = async () => {
+    try {
+      setLoading(true) // pending
+      const { data } = await axios.get("https://jsonplaceholder.typicode.com/todos");
 
-  //     setTodos(data); // success
-  //   } catch (error) {
-  //     console.log(error); // gagal
-  //   } finally {
-  //     setLoading(false)// success
-  //   }
-  // };
+      setTodos(data); // success
+    } catch (error) {
+      console.log(error); // gagal
+    } finally {
+      setLoading(false)// success
+    }
+  };
 
   useEffect(() => {
-    dispatch(fetchAsync())
+    fetchTodos()
   }, []);
 
   if (loading) {
@@ -41,7 +38,7 @@ const DataTablePage = () => {
     <section className="flex flex-col gap-4 rounded bg-gray-100 p-4">
       <p className="text-2xl font-bold">DataTable Page</p>
 
-      {!error && todos?.length > 0 && (
+      {todos?.length > 0 && (
         <table className="border-1 border border-emerald-400">
           <thead>
             <tr>
