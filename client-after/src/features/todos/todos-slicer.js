@@ -37,13 +37,17 @@ export const todosSlice = createSlice({
         // - reject, pada saat fetch gagal dan mendapatkan pesan error
         fetchPending(state) {
             state.loading = true;
+            state.todos = []
+            state.error = "
         },
         fetchSuccess(state, action) {
             state.loading = false
             state.todos = action.payload
+            state.error = "
         },
         fetchReject(state, action) {
             state.loading = false
+            state.todos = []
             state.error = action.payload
         },
     }
