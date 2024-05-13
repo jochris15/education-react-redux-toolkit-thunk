@@ -1,7 +1,6 @@
 // Di sini kita akan menggunakan slice dari redux toolkit untuk membuat reducernya secara otomatis
 import { createSlice } from '@reduxjs/toolkit'
 import axios from "axios"
-import Swal from 'sweetalert2'
 
 // Di sini kita akan mendeklarasikan state awal yang digunakan oleh reducer
 const initialState = {
@@ -38,12 +37,12 @@ export const todosSlice = createSlice({
         fetchPending(state) {
             state.loading = true;
             state.todos = []
-            state.error = "
+            state.error = ""
         },
         fetchSuccess(state, action) {
             state.loading = false
             state.todos = action.payload
-            state.error = "
+            state.error = ""
         },
         fetchReject(state, action) {
             state.loading = false
@@ -66,10 +65,6 @@ export const fetchAsync = () => async (dispatch) => {
         dispatch(fetchSuccess(data))
     } catch (error) {
         dispatch(fetchReject(error.message))
-        Swal.fire({
-            icon: "error",
-            title: error.message,
-        });
     }
 }
 
