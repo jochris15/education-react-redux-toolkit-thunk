@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAsync } from "../features/todos/todos-slicer";
 import gifLoading from '../assets/Pulse-1s-284px.svg'
+import Toastify from 'toastify-js'
 
 const DataTablePage = () => {
   // const [todos, setTodos] = useState([]);
@@ -27,6 +28,27 @@ const DataTablePage = () => {
   useEffect(() => {
     dispatch(fetchAsync())
   }, []);
+
+  // untuk menghandle error secara UI, tidak boleh di redux
+  useEffect(() => {
+    if (error) {
+      Toastify({
+        text: error,
+        duration: 2000,
+        newWindow: true,
+        close: true,
+        gravity: "bottom",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+          background: "#EF4C54",
+          color: "#17202A",
+          boxShadow: "0 5px 10px black",
+          fontWeight: "bold"
+        }
+      }).showToast();
+    }
+  }, [error]);
 
   if (loading) {
     return (
