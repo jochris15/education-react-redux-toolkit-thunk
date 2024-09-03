@@ -11,9 +11,15 @@ Seperti yang kalian lihat dari dokumentasi diatas, redux toolkit membantu kita d
 [Dokumentasi Quick-start RTK](https://redux-toolkit.js.org/tutorials/quick-start)
 
 # How to handle asynchronus function in redux toolkit?
-Caranya dengan memanfaatkan thunk, apa itu thunk? simplenya, thunk itu sebuah **middleware** yg digunakan untuk mendelay sebuah kalkukasi, nah pemanfaatan thunk di redux ini adalah untuk menghandle **proses asynchronus** dikarenakan action dalam redux hanya boleh menerima **pure function**
+[Dokumentasi Async logic & data fetching](https://redux.js.org/tutorials/essentials/part-5-async-logic)
 
-[Dokumentasi quick start menggunakan thunk](https://codesandbox.io/p/sandbox/github/reduxjs/redux-essentials-counter-example/tree/master/?file=%2Fsrc%2Ffeatures%2Fcounter%2FcounterSlice.js&from-embed=)
+Dengan sendirinya, redux store tidak tau apa2 tentang logic asynchronus. Hanya tau tentang synchronus dispatch actions. 
+<br>
+<br>
+Bagaimana kalo kita mau melakukan fetching data yang sifatnya asynchronus? Caranya dengan memanfaatkan thunk, apa itu thunk? simplenya, thunk itu sebuah **middleware** yg digunakan untuk mendelay sebuah kalkukasi, nah pemanfaatan thunk di redux ini adalah untuk menghandle **proses asynchronus** dikarenakan action dalam redux hanya boleh menerima **pure function**
+
+[Dokumentasi quick start menggunakan thunk](https://redux.js.org/tutorials/quick-start#full-counter-app-example)
+
 ```js
 
 // The function below is called a thunk and allows us to perform async logic. It
