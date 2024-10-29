@@ -1,7 +1,7 @@
 # Redux
 Apa itu redux? redux adalah salah satu global state management react.js
 
-## Aturan dalam redux kita kita ingin menggunakanya :
+## Aturan dalam redux ketika kita ingin menggunakanya :
 - Single source of truth, alias sumber statenya cuman boleh dari 1 toko / 1 redux
 - State is read only, alias komponen lain yang menggunakan state yang dibuat oleh redux gaboleh merubah langsung, merubahnya menggunakan action yang di emit redux.
 - Changes made by pure function, alias perubahannya cuman boleh menggunakan function murni.
