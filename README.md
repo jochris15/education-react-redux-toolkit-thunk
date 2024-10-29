@@ -1,3 +1,20 @@
+# Redux
+Apa itu redux? redux adalah salah satu global state management react.js
+
+## Aturan dalam redux kita kita ingin menggunakanya :
+- Single source of truth, alias sumber statenya cuman boleh dari 1 toko / 1 redux
+- State is read only, alias komponen lain yang menggunakan state yang dibuat oleh redux gaboleh merubah langsung, merubahnya menggunakan action yang di emit redux.
+- Changes made by pure function, alias perubahannya cuman boleh menggunakan function murni.
+
+<br>
+
+## Kata kunci dalam redux yaitu ada 3 :
+- Store : tempat penampung global state yang ingin kita buat (di analogikan sebagai tanah)
+- Reducer : function yang bertugas untuk membuat sebuah pohon state (di analogikan sebagai orang)
+- Action : function yang bisa merubah global state yang sifatnya immutable (di analogikan sebagai aksi dari orang tersebut - contoh, menebang pohon, memetik buah, memotong daun)
+
+<br>
+
 # Redux Toolkit
 [Dokumentasi RTK](https://redux-toolkit.js.org/)
 
