@@ -10,8 +10,8 @@ Apa itu redux? redux adalah salah satu global state management react.js
 
 ## Kata kunci dalam redux yaitu ada 3 :
 - Store : tempat penampung global state yang ingin kita buat (di analogikan sebagai tanah)
-- Reducer : function yang bertugas untuk membuat sebuah pohon state (di analogikan sebagai orang)
-- Action : function yang bisa merubah global state yang sifatnya immutable (di analogikan sebagai aksi dari orang tersebut - contoh, menebang pohon, memetik buah, memotong daun)
+- Reducer : function yang bertugas untuk membuat sebuah pohon state (di analogikan sebagai manusia)
+- Action : function yang bisa merubah global state yang sifatnya immutable (di analogikan sebagai aksi dari manusia - contoh, menebang pohon, memetik buah, memotong daun)
 
 <br>
 
