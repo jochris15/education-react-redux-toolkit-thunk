@@ -1,54 +1,33 @@
-// import { useEffect, useState } from "react";
-// import axios from "axios"
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchAsync } from "../features/todos/todos-slicer";
 import gifLoading from '../assets/Pulse-1s-284px.svg'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchAsync } from "../features/todos/todoSlicer";
 import Toastify from 'toastify-js'
 
 const DataTablePage = () => {
-  // const [todos, setTodos] = useState([]);
-  // const [loading, setLoading] = useState(false)
-  const { todos, loading, error } = useSelector((state) => state.todos);
-  const dispatch = useDispatch();
-
-  // const fetchTodos = async () => {
-  //   try {
-  //     setLoading(true)
-  //     const { data } = await axios.get("https://jsonplaceholder.typicode.com/todos");
-
-  //     setTodos(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   } finally {
-  //     setLoading(false)
-  //   }
-  // };
+  const { todos, loading, error } = useSelector((state) => state.todos)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(fetchAsync())
   }, []);
 
-  // untuk menghandle error secara UI, tidak boleh di redux
   useEffect(() => {
     if (error) {
       Toastify({
-        text: error,
-        duration: 2000,
+        text: error.message,
+        duration: 3000,
         newWindow: true,
         close: true,
-        gravity: "bottom",
-        position: "right",
-        stopOnFocus: true,
+        gravity: "bottom", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
-          background: "#EF4C54",
-          color: "#17202A",
-          boxShadow: "0 5px 10px black",
-          fontWeight: "bold"
-        }
+          background: "#FF0000",
+        },
       }).showToast();
     }
-  }, [error]);
+  }, [error])
 
   if (loading) {
     return (
@@ -60,11 +39,12 @@ const DataTablePage = () => {
     );
   }
 
+
   return (
     <section className="flex flex-col gap-4 rounded bg-gray-100 p-4">
       <p className="text-2xl font-bold">DataTable Page</p>
 
-      {!error && todos.length > 0 && (
+      {todos?.length > 0 && !error && (
         <table className="border-1 border border-emerald-400">
           <thead>
             <tr>
@@ -75,7 +55,7 @@ const DataTablePage = () => {
             </tr>
           </thead>
           <tbody>
-            {todos.map((todo) => (
+            {todos?.map((todo) => (
               <tr key={todo.id}>
                 <td className="border border-emerald-400 py-2 text-center">
                   {todo.id}

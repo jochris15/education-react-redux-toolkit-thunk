@@ -1,11 +1,10 @@
-// disini kita akan membuat storenya dan memasang reducer dari slice yang kita buat
 import { configureStore } from '@reduxjs/toolkit'
-import counter from '../features/counter/counter-slice'
-import todos from '../features/todos/todos-slicer'
+import counterSlice from '../features/counter/counterSlice'
+import todoSlice from '../features/todos/todoSlicer'
 
-export default configureStore({
+export const store = configureStore({
     reducer: {
-        counter,
-        todos
-    }
+        counter: counterSlice,
+        todos: todoSlice
+    },
 })

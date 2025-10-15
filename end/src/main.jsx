@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./base.css";
+import { store } from './app/store'
+import { Provider } from 'react-redux'
 import "toastify-js/src/toastify.css"
-import { Provider } from "react-redux";
-import store from "./app/store"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
